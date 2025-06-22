@@ -1,0 +1,29 @@
+name: Déploiement PHP EC2
+
+on:
+  push:
+    branches:
+      - main  
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Cloner le repo
+      uses: actions/checkout@v3
+
+    - name: Ajouter la clé SSH
+      run: |
+        mkdir -p ~/.ssh
+        echo "${{ secrets.EC2_SSH_KEY }}" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        ssh-keyscan -H 3.22.222.20 >> ~/.ssh/known_hosts
+
+    - name: 🚀 Se connecter et déployer
+      run: |
+        ssh ubuntu@3.22.222.20 << 'EOF'
+          cd /var/www/html/GestionAbsence
+          git pull origin main
+          sudo systemctl restart apache2
+        EOF
