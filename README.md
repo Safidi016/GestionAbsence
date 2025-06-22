@@ -1,4 +1,4 @@
-# Nom du projet
+#GestionAbsence - Intégration et Déploiement Continu sur AWS EC2 LAMP
 
 Une application web développée en PHP (back-office), JavaScript/CSS (front-office), avec une base de données MySQL.
 
