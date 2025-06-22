@@ -2,8 +2,8 @@
 class Db {
 
     private $host = "127.0.0.1";
-    private $username  = "root";
-    private  $password = "";
+    private $username  = "user2";
+    private  $password = "Mot123";
     private $database = "gab";
     protected $_query;
     public $db;
