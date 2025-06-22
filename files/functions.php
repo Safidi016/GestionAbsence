@@ -4,25 +4,47 @@
 
 
 /* Connexion a la base donnée */
+// function database()
+// {
+
+//     /* Base donnée */
+//     $host = "127.0.0.1";
+//     $username = "root";
+//     $password = "";
+//     $database = "gab";
+
+//     $db = new PDO("mysql:host=" . $host . ";dbname=" . $database, $username, $password,
+//         array(
+//             PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES UTF8',
+//             PDO::ATTR_ERRMODE => PDO::ERRMODE_SILENT
+//         )
+//     );
+
+//     return $db;
+
+// }
+
 function database()
 {
-
     /* Base donnée */
     $host = "127.0.0.1";
-    $username = "root";
-    $password = "";
+    $username = "user2";    // changer ici
+    $password = "Mot123";   // changer ici
     $database = "gab";
 
-    $db = new PDO("mysql:host=" . $host . ";dbname=" . $database, $username, $password,
-        array(
-            PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES UTF8',
-            PDO::ATTR_ERRMODE => PDO::ERRMODE_SILENT
-        )
-    );
-
-    return $db;
-
+    try {
+        $db = new PDO("mysql:host=" . $host . ";dbname=" . $database, $username, $password,
+            array(
+                PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES UTF8',
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION // pour afficher les erreurs en exception
+            )
+        );
+        return $db;
+    } catch (PDOException $e) {
+        die("Erreur de connexion : " . $e->getMessage());
+    }
 }
+
 
 
 /* Connexion */
