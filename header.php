@@ -19,63 +19,73 @@
     <link rel="stylesheet" href="./css/font-awesome.min.css" >
     <link rel="stylesheet"  href="./css/styles.css" >
 
-    <style>
-        nav .container{
-            display: flex;
-            justify-content: space-between;
-        }
+  <style>
+    nav .container {
+        display: flex;
+        justify-content: space-between;
+    }
 
-        #deconect {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            background-color: #999999;
-            padding: 15px;
-            margin-top: 5px;
-            border-radius: 10px;
-            color: white;
-        }
+    #deconect {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        background-color: #999999;
+        padding: 15px;
+        margin-top: 5px;
+        border-radius: 10px;
+        color: white;
+    }
 
-        #deconect:hover {
-            background-color: gray;
-        }
+    #deconect:hover {
+        background-color: gray;
+    }
 
-        .nom {
-            background-color: orange;
-            border-radius: 5px;
-        }
+    .nom {
+        background-color: orange;
+        border-radius: 5px;
+    }
 
-        body.light-mode {
-            background-color: #ffffff;
-            color: #000000;
-        }
+    body.light-mode {
+        background-color: #ffffff;
+        color: #000000;
+    }
 
-        body.dark-mode {
-            background-color: #121212;
-            color: #ffffff;
-        }
+    body.dark-mode {
+        background-color: #121212;
+        color: #ffffff;
+    }
 
-        .navbar.dark-mode {
-            background-color: #1f1f1f !important;
-        }
+    .navbar.dark-mode {
+        background-color: #1f1f1f !important;
+    }
 
-        #deconect.dark-mode {
-            background-color: #333333;
-        }
+    #deconect.dark-mode {
+        background-color: #333333;
+    }
 
-        #deconect.dark-mode:hover {
-            background-color: #444444;
-        }
+    #deconect.dark-mode:hover {
+        background-color: #444444;
+    }
 
-        #theme-toggle {
-            margin-left: 10px;
-            margin-top: 10px;
-        }
-    </style>
+    #theme-toggle {
+        margin-left: 10px;
+        margin-top: 10px;
+    }
+
+    /* ✅ Forcer les liens à être noirs */
+    .navbar-nav > li > a {
+        color: black !important;
+    }
+
+    .navbar-nav > li > a:hover {
+        color: #212121 !important;
+    }
+</style>
+
 </head>
 <body>
 <!-- Navigation -->
-<nav class="navbar navbar-default navbar-fixed-top" style="background-color: black;font-size:  25px;">
+<nav class="navbar navbar-default navbar-fixed-top" style="background-color: #1976d2;font-size:  25px;">
     <div class="container">
         <!-- Brand -->
         <div class="navbar-header">   
@@ -89,7 +99,7 @@
             <ul class="nav navbar-nav">
                 <li><a href="index.php">Accueil</a></li>
                 <?php if(isset($_SESSION["login"]) && $_SESSION["type"] == "admin" ): ?>
-                    <li><a href="index.php"> <i class="fa fa-dashboard"></i> <b>ADMIN</b></a></li>
+                    <li><a href="index.php" > <i class="fa fa-dashboard"></i> <b>ADMIN</b></a></li>
                 <?php elseif(isset($_SESSION["type"]) && $_SESSION["type"] == "etudiant" ): ?>
                     <li><a href="etudiant.php?id=<?= $_SESSION['id_etudiant'] ?>"> <i class="fa fa-dashboard"></i> Mes absences</a></li>
                 <?php elseif(isset($_SESSION["type"]) && $_SESSION["type"] == "professeur" ): ?>
