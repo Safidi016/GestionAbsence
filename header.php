@@ -19,7 +19,7 @@
     <link rel="stylesheet"  href="./css/styles.css" >
      
 
-    button class="toggle-button" onclick="toggleDarkMode()">🌙/☀️</button>
+   <button class="toggle-button" onclick="toggleDarkMode()">🌙/☀️</button>
 
   <h1>Bienvenue sur mon site PHP</h1>
 
