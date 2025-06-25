@@ -5,6 +5,8 @@ body {
 .professeur {
     display: none;
 }
+
+
 body.light-mode {
   background-color: #ffffff;
   color: #000000;
