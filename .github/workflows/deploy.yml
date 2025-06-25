@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name:  Cloner le repo
+    - name: Cloner le repo
       uses: actions/checkout@v3
 
     - name: Ajouter la clé SSH
@@ -22,9 +22,8 @@ jobs:
 
     - name: Se connecter et déployer
       run: |
-        ssh -o StrictHostKeyChecking=no ubuntu@${{ secrets.EC2_HOST }}
-
-          cd /var/www/html/GestionAbsence
+        ssh -o StrictHostKeyChecking=no ubuntu@${{ secrets.EC2_HOST }} << 'EOF'
+          cd /var/www/html/GestionAbsence || exit 1
           git pull origin main
           sudo systemctl restart apache2
         EOF
