@@ -8,6 +8,8 @@ Une application web développée en PHP (back-office), JavaScript/CSS (front-off
 
 Ce projet est déployé sur une instance **EC2 Ubuntu (AWS)** configurée avec un environnement **LAMP (Linux, Apache, MySQL, PHP)**.
 
+lien du site de
+
 ---
 
 ## Outils et technologies utilisés

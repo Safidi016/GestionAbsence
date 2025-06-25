@@ -17,7 +17,32 @@
     <link rel="stylesheet" href="./css/bootstrap.min.css" >
     <link rel="stylesheet" href="./css/font-awesome.min.css" >
     <link rel="stylesheet"  href="./css/styles.css" >
+     
 
+    button class="toggle-button" onclick="toggleDarkMode()">🌙/☀️</button>
+
+  <h1>Bienvenue sur mon site PHP</h1>
+
+  <script>
+    // Appliquer le mode stocké au chargement
+    window.onload = function () {
+      if (localStorage.getItem("theme") === "dark") {
+        document.body.classList.add("dark-mode");
+      }
+    };
+
+    // Fonction pour basculer entre les thèmes
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
+
+      // Sauvegarde du choix utilisateur
+      if (document.body.classList.contains("dark-mode")) {
+        localStorage.setItem("theme", "dark");
+      } else {
+        localStorage.setItem("theme", "light");
+      }
+    }
+  </script>
     <style>
         nav .container{
             display: flex;
@@ -88,4 +113,5 @@
             </div>
         </div>
     </div>
+    
 <?php endif ?>
